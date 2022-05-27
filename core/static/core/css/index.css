@@ -1,0 +1,525 @@
+    * {
+        font-family: 'league spartan', sans-serif;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow-x:hidden;
+
+    }
+
+    #body {
+        line-height: 1;
+    }
+    
+    .master {
+        display: column;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        
+    }
+    
+    .navMenu {
+        background-color: rgb(42, 42, 42);
+        height: 7%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
+    
+    .logo {
+        color: white;
+        font-size: xx-large;
+        font-weight: bold;
+        padding-left: 2%;
+        text-decoration: none;
+    }
+
+    .logo:hover {
+        color: white;
+    }
+    
+    .colorJardin {
+        color: rgb(89, 236, 89);
+    }
+
+    
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+
+    #toggleMenu {
+        display: inline;
+        padding: 0%;
+        color: white;
+    }
+
+    #dropMenu {
+        height: 20%;
+    }
+    
+    
+    li {
+        padding-right: 2%;
+        color: white;
+    }
+    
+    .linkMenu:hover {
+        cursor: pointer;
+        color: rgb(89, 236, 89);
+    }
+    
+    .linkMenu {
+        text-decoration: none;
+        color: white;
+    }
+
+    .linkMenu.active {
+        color: #5cd85c;
+    }
+    
+    
+    
+    .imgBackground {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    
+    .main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: normal;
+        flex-direction: row;
+        background-image: url(https://marketplace.canva.com/MADGyPCf3w4/4/screen_2x/canva-home-gardening---young-rucola-MADGyPCf3w4.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .containerLogoIndex {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 27vh;
+    }
+    
+    .containerButton {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 27vh;
+        word-wrap: break-word;
+        justify-content: center;
+    }
+
+    .ayudaParrafo {
+      color: white;
+      font-size: 1.5rem;
+      padding-left: 10%;
+      padding-right: 10%;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .button {
+        width: 20%;
+        height: 7%;
+        background-color: #72d372;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+
+    .button:hover {
+        background-color: #5cd85c;
+        color: white;
+    }
+
+    .logoMain {
+        color: white;
+        font-size: 10vw;
+        font-weight: bold;
+        padding-left: 5%;
+        text-decoration: none;
+    
+    }
+
+    .logoMain:hover {
+        color: white;
+    }
+
+    .descripLogo {
+        color: white;
+        font-size: 4vw;
+        font-weight: normal;
+        text-decoration: none;
+        font-weight: 100;
+        text-decoration: none;
+        font-style: italic;
+    }
+
+    .desLogoContainer {
+        padding-left: 15vw;
+    }
+
+    @media (min-width: 1000px) {
+        .fullMenu {
+            display: flex;
+            list-style: none;
+            margin: 3%;
+            width: 100%;
+            justify-content: right;
+        }
+
+        .button {
+            font-size: 1.5rem;
+            width: 29%;
+            height: 9%;
+        }
+
+        .logoMain {
+            font-size: 10vw;
+        }
+
+        .responsiveMenu {
+            display: none;
+        }
+    }
+
+    @media (min-width: 600px) and (max-width:1000px){
+        .fullMenu {
+            display: flex;
+            list-style: none;
+            margin: 3%;
+            width: 100%;
+            justify-content: right;
+        }
+    
+        .responsiveMenu {
+            display: none;
+        }
+
+        .button {
+            font-size: 2rem;
+            width: 48%;
+            height: 9%;
+            
+        }
+
+        .logoMain {
+            font-size: 13vw;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .fullMenu {
+            display: none;
+        }
+
+        .responsiveMenu {
+            display: flex;
+            list-style: none;
+            margin: 3%;
+            width: 100%;
+            justify-content: right;
+        }
+
+        li {
+            padding-right: 7%;
+        }
+
+        i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        i:hover {
+            color: #5cd85c;
+        }
+        .containerButton {
+            width: 100%;
+            height: 45%;
+            padding-bottom: 0vh;
+            
+        }
+        .button {
+            width: 35%;
+            height: 13%;
+            font-size: 1.5rem;
+        }
+
+        .containerLogoIndex { 
+            width: 100%;
+            height: 61%;
+            padding-bottom: 0vh;
+        }
+
+        .main {
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            
+        }
+
+        .logoMain {
+            color: white;
+            font-size: 20vw;
+            font-weight: bold;
+            padding-left: 5%;
+            text-decoration: none;
+        
+        }
+
+        .descripLogo {
+            color: white;
+            font-size: 6.5vw;
+            font-weight: normal;
+            text-decoration: none;
+            font-weight: 100;
+            text-decoration: none;
+            font-style: italic;
+        }
+    }
+
+    /*Footer parte, todo lo de abajo*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+
+
+.footer-distributed {
+  background-color: #212529; /* aca se cambia el fondo del footer enterito */
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 15px 50px;
+}
+
+.footer-distributed .footer-left p {
+  color: #8f9296;
+  font-size: 14px;
+  margin: 0;
+}
+/* Footer links */
+
+.footer-distributed p.footer-links {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 10px;
+  padding: 0;
+  transition: ease .25s;
+}
+
+.footer-distributed p.footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "·";
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 6px;
+  max-width: 180px;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  padding-top: 8px; /* padding top agregado al cuadradito de los iconos */
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition:all .25s;
+  border-radius: 20px;
+}
+
+.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
+
+.footer-distributed p.footer-links a:hover{text-decoration:underline;}
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  .footer-distributed .footer-left, .footer-distributed .footer-right {
+    text-align: center;
+  }
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}
+
+/* Parte del carrusel */
+
+
+
+.C_centro{
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  h4, h2,small,a{
+    margin: 0;
+    padding: 0;
+  }
+  a{
+    text-decoration: none;
+  }
+  .Carousel{
+    width: 100%;
+    margin: 0px 0px;
+    
+    
+  }
+  .Carousel h2{
+    font-size: 26px;
+    line-height: 38px;
+    padding-bottom: 24px;
+    opacity: .9;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-align: center;
+  }
+  
+  /* parte de las imagenes */
+  
+  .slick-list{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 304px;
+    padding: 10px 0px;
+    margin: 0px auto;
+    max-width: 90vw;
+    overflow: hidden;
+  }
+  .slick-track{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    transition: .5s ease-in-out;
+  }
+  .slick{
+    position: relative;
+    width: 275px;
+    padding: 0 18px;
+    float: left;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+  }
+  .slick h4{
+    position: absolute;
+    z-index: 1;
+    font-size: 22px;
+    line-height: 23px;
+    margin-top: 8px;
+    background-color: #4d4d4dd6;
+    color: white;
+    width: 62%;
+    display: grid;
+    justify-content: center;
+  }
+  .slick h4 small{
+    font-size: 15px;
+    display: block;
+  }
+  .slick a img{
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.5);
+    transition: .3s ease-in-out;
+  }
+  .slick a img:hover{
+    opacity: .85;
+  }
+  
+  /* estos son los botones*/
+  
+  .slick-arrow{
+    border-radius: 30px;
+    background-color: #fff;
+    position: absolute;
+    z-index: 4;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
+    border: 0;
+    cursor: pointer;
+  }
+  .slick-arrow:focus{
+    outline: 0;
+  }
+  .slick-arrow svg{
+    width: 12px;
+    height: 100%;
+    color: rgba(0,0,0,.7);
+  }
+  .C_Fle_izq{
+    left: 0px;
+  }
+  .C_Fle_der{
+    right: 0px;
+  }
+  
+  
