@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/nosotros.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="img/logo.png"sizes="64x64">
+    <link rel="stylesheet" type="text/css" href={% static "core/css/nosotros.css" %}>
+    <link rel="icon" href={% static "img/logo.png" %}sizes="64x64">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400;700;800;900&display=swap" rel="stylesheet">
@@ -19,34 +19,7 @@
     <!--                 Navegador predeterminado          -->
     <!--  ================================================ -->
 
-    <div class="navMenu">
-        <a class="logo" href="">Tu<span class="colorJardin">Jardín</span></a>
-        <div class="menu">
-            <ul class="fullMenu">
-                <li><a class="linkMenu" href="./index.html">Inicio</a></li>
-                <li><a class="linkMenu" href="./nosotros.html">Nosotros</a></li>
-                <li><a class="linkMenu" href="./Productos.html">Productos</a></li>
-                <li><a class="linkMenu" href="./contacto.html">Contactos</a></li>
-                <li><a class="linkMenu" href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li><a class="linkMenu" href="./Usuario.html"><i class="fa-solid fa-user"></i></a></li>
-                <li><a class="linkMenu" href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
-            </ul>
-            <ul class="responsiveMenu">
-                <li><a class="linkMenu" href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li><a class="linkMenu" href="./Usuario.html"><i class="fa-solid fa-user"></i></a></li>
-                <li><a class="linkMenu" href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
-                <li class="nav-item dropdown">
-                    <a id="toggleMenu" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bars"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="./index.html">Inicio</a></li>
-                        <li><a class="dropdown-item" href="./nosotros.html">Nosotros</a></li>
-                        <li><a class="dropdown-item" href="./Productos.html">Productos</a></li>
-                        <li><a class="dropdown-item" href="./contacto.html">Contactos</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+    {% include './navBar.html'%}
 
 
     <!--  ================================================ -->
@@ -73,7 +46,7 @@
     <!--               carrusel de imagenes                -->
     <!--  ================================================ -->
             
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+            <div style="position: sticky;" class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">

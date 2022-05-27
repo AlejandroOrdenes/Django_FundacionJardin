@@ -17,3 +17,4 @@ def usuario(request):
 def productos(request):
     return render(request, 'core/Productos.html')
 
+
