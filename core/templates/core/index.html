@@ -1,8 +1,8 @@
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
     <link href={% static 'core/css/index.css' %} rel="stylesheet" type="text/css">
     <link rel="icon" href={% static "core/img/logo.png"%}sizes="64x64">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,12 +19,12 @@
             <a class="logo" href="">Tu<span class="colorJardin">Jardín</span></a>
             <div class="menu">
                 <ul class="fullMenu">
-                    <li><a class="linkMenu" href="./index.html">Inicio</a></li>
-                    <li><a class="linkMenu" href="./nosotros.html">Nosotros</a></li>
-                    <li><a class="linkMenu" href="./Productos.html">Productos</a></li>
-                    <li><a class="linkMenu" href="./contacto.html">Contactos</a></li>
+                    <li><a class="linkMenu" href={% url 'index' %}>Inicio</a></li>
+                    <li><a class="linkMenu" href={% url 'nosotros' %}  >Nosotros</a></li>
+                    <li><a class="linkMenu" href={%url 'productos' %}>Productos</a></li>
+                    <li><a class="linkMenu" href={%url 'contacto' %}>Contactos</a></li>
                     <li><a class="linkMenu" href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                    <li><a class="linkMenu" href="./Usuario.html"><i class="fa-solid fa-user"></i></a></li>
+                    <li><a class="linkMenu" href={%url 'usuario' %}><i class="fa-solid fa-user"></i></a></li>
                     <li><a class="linkMenu" href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
                 <ul class="responsiveMenu">
@@ -69,8 +69,9 @@
                     <div>
                         <a href="#">
                             <h4 class="tituloSlick"><small>Categorías</small>Todos</h4>
+
                             <picture>
-                                <img src="./img/1.1Todos.jpg" alt="Image">
+                                <img src={% static "core/img/1.1Todos.jpg" %} alt="Image">
                             </picture>
                         </a>
                     </div>
@@ -80,7 +81,8 @@
                         <a href="#" >
                             <h4 class="tituloSlick"><small>Categorías</small>Maceteros</h4>
                             <picture>
-                                <img src="./img/1.2Maceteros.jpg" alt="Image">
+                    
+                                <img src={% static "core/img/1.2Maceteros.jpg" %} alt="Image">
                             </picture>
                         </a>
                     </div>
@@ -89,8 +91,9 @@
                     <div>
                         <a href="#">
                             <h4 class="tituloSlick"><small>Categorías</small>Plantas</h4>
+                            
                             <picture>
-                                <img src="./img/1.3Plantas.jpg" alt="Image">
+                                <img src={% static "core/img/1.3Plantas.jpg" %} alt="Image">
                             </picture>
                         </a>
                     </div>
@@ -99,8 +102,9 @@
                     <div>
                         <a href="#">
                             <h4 class="tituloSlick"><small>Categorías</small>Tierra de hojas</h4>
+                            
                             <picture>
-                                <img src="./img/1.4tTierraHoja.png" alt="Image">
+                                <img src={% static "core/img/1.4tTierraHoja.png"%} alt="Image">
                             </picture>
                         </a>
                     </div>
@@ -109,8 +113,10 @@
                     <div>
                         <a href="#">
                             <h4 class="tituloSlick"><small>Categorías</small>Arbustos</h4>
+                            
                             <picture>
-                                <img src="./img/1.5Arbustos.jpg" alt="Image">
+
+                                <img src={% static "core/img/1.5Arbustos.jpg" %} alt="Image">
                             </picture>
                         </a>
                     </div>
@@ -155,6 +161,7 @@
         </div>
 
     </footer>
+    {% load static %}
     <script src={% static "./js/index.js" %}> </script> 
 </body>
 </html>
