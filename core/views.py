@@ -38,8 +38,7 @@ def formulario(request):
         form = ProductoForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
+            formulario.save()
             # redirect to a new URL:
             return HttpResponseRedirect('/thanks/')
 

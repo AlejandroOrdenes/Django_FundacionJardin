@@ -25,7 +25,9 @@ class Migration(migrations.Migration):
                 ('nombre', models.CharField(max_length=40, verbose_name='Nombre')),
                 ('imagen', models.ImageField(upload_to='Productos')),
                 ('descripcion', models.CharField(max_length=600, verbose_name='Descripcion')),
+                ('cantidad_prod',models.IntegerField(verbose_name='Cantidad de productos')),
                 ('precio', models.IntegerField(max_length=10, verbose_name='Precio')),
             ],
         ),
+      
     ]

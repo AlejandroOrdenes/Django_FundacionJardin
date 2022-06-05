@@ -26,11 +26,11 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     idProducto = models.IntegerField(primary_key=True,verbose_name='id de Producto')
-    nombre_prod= models.CharField(max_length=40,verbose_name='Nombre_prod')
-    imagen_prod= models.ImageField(upload_to="Productos") #python -m pip install Pillow   eso me lo pidio
-    descripcion_prod= models.CharField(max_length=600,verbose_name='Descripcion')
-    cantidad_prod= models.IntegerField(verbose_name='Cantidad de productos')
-    precio_prod= models.IntegerField(verbose_name='Precio')
+    nombre_prod = models.CharField(max_length=40,verbose_name='Nombre_prod', null=True)
+    imagen_prod = models.ImageField(upload_to="Productos", null=True) #python -m pip install Pillow   eso me lo pidio
+    descripcion_prod = models.CharField(max_length=600,verbose_name='Descripcion')
+    cantidad_prod = models.IntegerField(verbose_name='Cantidad de productos')
+    precio_prod = models.IntegerField(verbose_name='Precio')
     categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -47,7 +47,7 @@ class DetalleVenta(models.Model):
 
 class Venta(models.Model):
     idVenta = models.IntegerField(primary_key=True,verbose_name='id Venta')
-    fech_venta = models.DateField(verbose_name='Fecha Venta')
+    fech_venta = models.DateField(verbose_name='FechaVenta')
     descuento = models.IntegerField(verbose_name='Descuento Venta')
     subtotal = models.IntegerField(verbose_name='Subtotal')
     iva = models.IntegerField(verbose_name='Iva')
