@@ -1,5 +1,7 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Producto
+from .forms import ProductoForm
 # Create your views here.
 
 def index(request):
@@ -17,6 +19,7 @@ def usuario(request):
 def productos(request):
     return render(request, 'core/Productos.html')
 
+
 def crud(request):
     #accedo al objeto que contiene los datos de la base 
     #el metodo all traera todos los productos que esten en la tablita
@@ -27,6 +30,22 @@ def crud(request):
     }
     #ahora se le agrega para que se envie al template de html
     return render(request, 'core/Crud.html', datos) #claro esto es solo una prueba la pagina puede cambiar
+    
 def formulario(request):
-    return render(request, 'core/formulario.html')
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = ProductoForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = ProductoForm()
+
+    return render(request, 'core/formulario.html', {'form': form})
 
