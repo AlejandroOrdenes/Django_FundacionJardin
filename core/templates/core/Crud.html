@@ -12,11 +12,19 @@
     </div>
     <div class="row">
     <table border="1">
-        <tr><td>Id</td><td>Nombre</td><td>Descripcion</td><td>Precio</td><td>Categoria</td></tr>
+        <tr><td>Id</td><td>Nombre</td><td>imagen_prod</td>
+            <td>cantidad_prod</td><td>Precio</td><td>Categoria</td>
+            <td>Descripcion</td></tr>
+            
         {% for ve in productos%}
-        <tr><td>{{ve.idProducto}}</td><td>{{ve.nombre}}</td><td>{{ve.descripcion}}</td><td>{{ve.precio}}</td><td>{{ve.categoria}}</td></tr>
+        <tr><td>{{ve.idProducto}}</td><td>{{ve.nombre_prod}}</td>
+            <td>{{ve.imagen_prod}}</td>
+            <td>{{ve.cantidad_prod}}</td>
+            <td>{{ve.precio_prod}}</td><td>{{ve.categoria}}</td>
+            <td>{{ve.descripcion_prod}}</td></tr>
         {% endfor %}
     </table>
     </div>
+    
 </body>
 </html>
