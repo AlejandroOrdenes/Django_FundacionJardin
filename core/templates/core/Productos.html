@@ -164,12 +164,59 @@
               <a  class=" D_color category_item btn btn-secondary btn-lg" category="arbustos">Arbustos</a>
             <hr> <!-- linea que separa-->  
             </div>
-              
-              <div class="row mx-auto container-fluid" id="res">
+              {% load humanize %}
+              <div class="row mx-auto container-fluid" > <!-- id="res"-->
               <section class="products-list" > 
                   <!-- desde aca empezaria un nuevo productito-->
-
+                  {% for p in productos %}
+                  <div class="product text-center col-lg-4 col-md-4 col-12">
+                    
+                    <div class="product-item" category={{ p.categoria }}>
+                    {% if p.imagen_prod %}
+                    <img id="container" class="img-fluid mb-3 fotito" src="{{p.imagen_prod.url}}" alt="{{p.nombre_prod}}">
+                    {% endif%}
+                    <h5 class="card-title">{{ p.nombre_prod | capfirst }}</h5>
+                    <p class="card-text">${{ p.precio_prod | intcomma}}</p>
+                    <!-- cambiar por pagina correspondiente al producto-->
+                    <button type="button" class="btn rounded-pill btn-success " data-bs-toggle="modal" data-bs-target="#myModal{{ p.idProducto }}">Ver producto</button>
+                    <div class="modal" id="myModal{{ p.idProducto }}">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                    
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                            <h4 class="modal-title">{{ p.nombre_prod | capfirst}}</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                          </div>
+                    
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                            {% if p.imagen_prod %}
+                            <img class="img-fluid mb-3 " src="{{p.imagen_prod.url}}" alt="{{ p.nombre_prod }}">
+                            {% endif%}
+                            <h4>${{ p.precio_prod | intcomma}}</h4>
+                            <h6>{{ p.descripcion_prod }}</h6>
+                          </div>
+                    
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                            <button class="btn btn-outline-success">+<img class="nav-svg" src={% static "core/img/Carrito.png" %} data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar al Carrito" alt="Shopping Cart"></button>
+                          </div>
+                    
+                        </div>
+                      </div>
+                    </div>
+                    
+                   <!-- aca deberia ir la supuesta pagina o carrito si es que tenemos uno-->
+     
+                  <button class="btn btn-outline-success">+<img class="nav-svg" src={% static "core/img/Carrito.png" %} data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar al Carrito" alt="Shopping Cart"></button>
+                    
+                  
+                  </div>
+                  </div>
+                  {% endfor %}
                   <!--final-->
+
               </section>
       </div>
   </div>

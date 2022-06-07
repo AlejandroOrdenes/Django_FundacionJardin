@@ -17,7 +17,15 @@ def usuario(request):
     return render(request, 'core/Usuario.html')
 
 def productos(request):
-    return render(request, 'core/Productos.html')
+    #accedo al objeto que contiene los datos de la base 
+    #el metodo all traera todos los productos que esten en la tablita
+    productos= Producto.objects.all()
+    #ahora crearemos una variable que le pase los datos del producto al template
+    datos = {
+        'productos': productos
+    }
+    #ahora se le agrega para que se envie al template de html
+    return render(request, 'core/Productos.html', datos)
 
 
 def crud(request):
@@ -42,12 +50,12 @@ def formulario(request):
         # check whether it's valid:
         if form.is_valid():
             form.save()
-            # redirect to a new URL:
-            datos['mensaje'] = "Datos Guardados Correctamente"
-
     # if a GET (or any other method) we'll create a blank form
     else:
         form = ProductoForm()
 
     return render(request, 'core/formulario.html', datos)
 
+
+def form2(request):
+    return render(request, 'core/form_vehiculo.html')
