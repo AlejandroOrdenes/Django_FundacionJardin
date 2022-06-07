@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href={% static 'core/css/index.css' %} rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
     <title>Crud hechito</title>
 </head>
 <body>
@@ -28,10 +30,12 @@
                                 <th>Precio</th>
                                 <th>Categoria</th>
                                 <th>Descripcion</th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                     {% for ve in productos%}
-                    <tr><td>{{ve.idProducto}}</td>
+                    <tr>
+                        <td>{{ve.idProducto}}</td>
                         <td>{{ve.nombre_prod}}</td>
             
                         <td>{{ve.imagen_prod}}</td>
@@ -39,7 +43,13 @@
                         <td>{{ve.cantidad_prod}}</td>
                         <td>{{ve.precio_prod}}</td>
                         <td>{{ve.categoria}}</td>
-                        <td>{{ve.descripcion_prod}}</td></tr>
+                        <td>{{ve.descripcion_prod}}</td>
+                        <td style="display: flex;">
+                            <a style="margin-right:4%;" href="{% url 'mod' ve.idProducto %}" class="btn btn-info btn-sm">Editar<a/>
+                            <a href="{% url 'eliminar' ve.idProducto %}" class="btn btn-danger btn-sm">Eliminar<a/>
+        
+                        </td>
+                    </tr>
                     {% endfor %}
                 </table>
                 </div>
@@ -47,6 +57,35 @@
             
         </div>
     </div>
+    {% comment %} <footer class="footer-distributed">
 
+        <div class="footer-right">
+    <!-- aca irian lo links en la #-->
+            <a href="#"><i class="fa fa-whatsapp"></i></a><!--whatsap-->
+            <a href="#"><i class="fa fa-instagram"></i></a> <!--instagram-->
+            <a href="#"><i class="fa fa-facebook"></i></a><!-- icono de youtube-->
+            <a href="#"><i class="fa fa-github"></i></a><!-- github del proyecto-->
+
+        </div>
+
+        <div class="footer-left">
+
+            <p class="footer-links">
+                <p class="footer-links">
+                    <!--Despachos-->
+                              <a class="link-1" href={%url 'usuario' %}>Despachos</a>
+                    <!--ONG-->
+                              <a href={% url 'form2' %}>ONG</a>
+                    <!--Suscribete-->
+                              <a href="#">Suscribete</a>
+                    <!--Formulario-->
+                              <a href={% url 'formulario' %}>Formulario</a>
+                    <!--Crud-->
+                              <a href={% url 'crud' %}>Crud</a>
+                          </p>
+
+            <p>TuJardin &copy; 2022</p>
+        </div>
+    </footer> {% endcomment %}
 </body>
 </html>

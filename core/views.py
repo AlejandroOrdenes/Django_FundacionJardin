@@ -67,5 +67,17 @@ def mod_prod(request, id):
     datos = {
         'form': ProductoForm(instance=producto)
     }
-    #ahora se le agrega para que se envie al template de html
+    
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to="crud")
+        datos["form"] = formulario
+
     return render(request, 'core/mod.html', datos)
+
+def eliminar_prod(request, id):
+    producto = get_object_or_404(Producto, idProducto=id)
+    producto.delete()
+    return redirect(to="crud")
