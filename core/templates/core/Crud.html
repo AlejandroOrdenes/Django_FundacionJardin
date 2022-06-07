@@ -8,34 +8,44 @@
     <title>Crud hechito</title>
 </head>
 <body>
-    <div class="row mb-4">
-        <h1>Listado de Productos</h1>
-    </div>
-    <div class="row mb-3">
-        <table class="table table-bordered" id="categorias">
-            <thead class="table-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>imagen_prod</th>
-                    <th>cantidad_prod</th>
-                    <th>Precio</th>
-                    <th>Categoria</th>
-                    <th>Descripcion</th>
-                </tr>
-            </thead>
-        {% for ve in productos%}
-        <tr><td>{{ve.idProducto}}</td>
-            <td>{{ve.nombre_prod}}</td>
-
-            <td>{{ve.imagen_prod}}</td>
-
-            <td>{{ve.cantidad_prod}}</td>
-            <td>{{ve.precio_prod}}</td>
-            <td>{{ve.categoria}}</td>
-            <td>{{ve.descripcion_prod}}</td></tr>
-        {% endfor %}
-    </table>
+    
+    <div class="container">
+        <div class="column">
+            <div class="row">
+                <div class="row mb-4">
+                    <h1>Listado de Productos</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row mb-3">
+                    <table class="table table-bordered" id="categorias">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>imagen_prod</th>
+                                <th>cantidad_prod</th>
+                                <th>Precio</th>
+                                <th>Categoria</th>
+                                <th>Descripcion</th>
+                            </tr>
+                        </thead>
+                    {% for ve in productos%}
+                    <tr><td>{{ve.idProducto}}</td>
+                        <td>{{ve.nombre_prod}}</td>
+            
+                        <td>{{ve.imagen_prod}}</td>
+            
+                        <td>{{ve.cantidad_prod}}</td>
+                        <td>{{ve.precio_prod}}</td>
+                        <td>{{ve.categoria}}</td>
+                        <td>{{ve.descripcion_prod}}</td></tr>
+                    {% endfor %}
+                </table>
+                </div>
+            </div>
+            
+        </div>
     </div>
 
 </body>
