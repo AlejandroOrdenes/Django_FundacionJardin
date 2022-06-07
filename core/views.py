@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+
 from django.shortcuts import render
 from .models import Producto
 from .forms import ProductoForm
@@ -40,6 +40,9 @@ def crud(request):
     return render(request, 'core/Crud.html', datos) #claro esto es solo una prueba la pagina puede cambiar
     
 def formulario(request):
+    datos = {
+        'form': ProductoForm()
+    }
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -51,7 +54,7 @@ def formulario(request):
     else:
         form = ProductoForm()
 
-    return render(request, 'core/formulario.html', {'form': form})
+    return render(request, 'core/formulario.html', datos)
 
 
 def form2(request):

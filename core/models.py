@@ -34,7 +34,7 @@ class Producto(models.Model):
     categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nombre_prod
+        return self.imagen_prod
 
 class DetalleVenta(models.Model):
     idDetVenta = models.IntegerField(primary_key=True,verbose_name='id Detalle Venta')
