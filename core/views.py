@@ -1,7 +1,8 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
+
 # Create your views here.
 
 def index(request):
@@ -59,3 +60,12 @@ def formulario(request):
 
 def form2(request):
     return render(request, 'core/form_vehiculo.html')
+
+def mod_prod(request, id):
+    producto = get_object_or_404(Producto, idProducto=id)
+    #ahora crearemos una variable que le pase los datos del producto al template
+    datos = {
+        'form': ProductoForm(instance=producto)
+    }
+    #ahora se le agrega para que se envie al template de html
+    return render(request, 'core/mod.html', datos)
