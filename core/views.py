@@ -41,21 +41,20 @@ def crud(request):
     return render(request, 'core/Crud.html', datos) #claro esto es solo una prueba la pagina puede cambiar
     
 def formulario(request):
-    datos = {
+    data = {
         'form': ProductoForm()
     }
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = ProductoForm(request.POST)
+        form = ProductoForm(data=request.POST, files=request.FILES) 
         # check whether it's valid:
         if form.is_valid():
             form.save()
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = ProductoForm()
-
-    return render(request, 'core/formulario.html', datos)
+            data["mensaje"] = "Guardado correctamente"
+        else:
+            data["form"] = formulario
+    return render(request, 'core/formulario.html', data)
 
 
 
