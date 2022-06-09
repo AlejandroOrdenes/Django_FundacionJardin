@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -41,25 +42,22 @@ def crud(request):
     return render(request, 'core/Crud.html', datos) #claro esto es solo una prueba la pagina puede cambiar
     
 def formulario(request):
-    datos = {
+    data = {
         'form': ProductoForm()
     }
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = ProductoForm(request.POST)
+        form = ProductoForm(data=request.POST, files=request.FILES) 
         # check whether it's valid:
         if form.is_valid():
             form.save()
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = ProductoForm()
+            messages.success(request, "Agregado Correctamente")
+        else:
+            data["form"] = formulario
+    return render(request, 'core/formulario.html', data)
 
-    return render(request, 'core/formulario.html', datos)
 
-
-def form2(request):
-    return render(request, 'core/form_vehiculo.html')
 
 def mod_prod(request, id):
     producto = get_object_or_404(Producto, idProducto=id)
@@ -72,6 +70,7 @@ def mod_prod(request, id):
         formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request, "Modificado Correctamente")
             return redirect(to="crud")
         datos["form"] = formulario
 
@@ -80,4 +79,5 @@ def mod_prod(request, id):
 def eliminar_prod(request, id):
     producto = get_object_or_404(Producto, idProducto=id)
     producto.delete()
+    messages.success(request, "eliminado correctamente")
     return redirect(to="crud")
