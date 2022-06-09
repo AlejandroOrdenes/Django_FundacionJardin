@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -51,7 +52,7 @@ def formulario(request):
         # check whether it's valid:
         if form.is_valid():
             form.save()
-            data["mensaje"] = "Guardado correctamente"
+            messages.success(request, "Agregado Correctamente")
         else:
             data["form"] = formulario
     return render(request, 'core/formulario.html', data)
@@ -69,6 +70,7 @@ def mod_prod(request, id):
         formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request, "Modificado Correctamente")
             return redirect(to="crud")
         datos["form"] = formulario
 
@@ -77,4 +79,5 @@ def mod_prod(request, id):
 def eliminar_prod(request, id):
     producto = get_object_or_404(Producto, idProducto=id)
     producto.delete()
+    messages.success(request, "eliminado correctamente")
     return redirect(to="crud")
