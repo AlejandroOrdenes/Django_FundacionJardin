@@ -58,8 +58,6 @@ def formulario(request):
     return render(request, 'core/formulario.html', datos)
 
 
-def form2(request):
-    return render(request, 'core/form_vehiculo.html')
 
 def mod_prod(request, id):
     producto = get_object_or_404(Producto, idProducto=id)
