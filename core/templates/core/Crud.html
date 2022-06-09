@@ -38,7 +38,12 @@
                     <tr>
                         <td>{{ve.idProducto}}</td>
                         <td>{{ve.nombre_prod}}</td>
-                        <td>{{ve.imagen_prod}}</td>
+                        {% if ve.imagen_prod %}
+                        <td><img id="container" class="img-fluid mb-3 fotito" src={{ve.imagen_prod.url}} alt="{{ve.nombre_prod}}"></td>
+                        {% endif%}
+                        {% if not ve.imagen_prod %}
+                        <td><img id="container" class="img-fluid mb-3 fotito" src={% static "core/img/IMG.png" %} alt="{{ve.nombre_prod}}"></td>
+                        {% endif%}
                         <td>{{ve.cantidad_prod}}</td>
                         <td>{{ve.precio_prod}}</td>
                         <td>{{ve.categoria}}</td>
