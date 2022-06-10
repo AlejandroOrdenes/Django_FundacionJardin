@@ -25,7 +25,7 @@ class Categoria(models.Model):
 #modelo para el producto(que son plantas,maceteros,etc..)
 
 class Producto(models.Model):
-    idProducto = models.IntegerField(primary_key=True,verbose_name='id de Producto')
+    idProducto = models.AutoField(primary_key=True,verbose_name='id de Producto')
     nombre_prod = models.CharField(max_length=40,verbose_name='Nombre_prod')
     imagen_prod = models.ImageField(upload_to="Productos", null=True, blank=True) #python -m pip install Pillow   eso me lo pidio
     descripcion_prod = models.TextField(verbose_name='Descripcion')
