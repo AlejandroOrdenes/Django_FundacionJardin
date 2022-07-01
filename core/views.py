@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import ProductoForm, CustomUserCreationForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -12,6 +13,16 @@ def registroUsuario(request):
     data = {
         'form': CustomUserCreationForm()
     }
+
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data['username'], password=formulario.cleaned_data['password1'])
+            login(request, user)
+            messages.success(request, "Registrado Correctamente")
+            return redirect(to="index")
+        data["form"] = formulario
     return render(request, 'registration/register.html', data)
 
 def nosotros(request):

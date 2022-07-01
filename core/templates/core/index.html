@@ -118,7 +118,6 @@
             <a href="#"><i class="fa fa-facebook"></i></a><!-- icono de youtube-->
             <a href="#"><i class="fa fa-github"></i></a><!-- github del proyecto-->
         </div>
-
         <div class="footer-left">
             <p class="footer-links">
                 <p class="footer-links">
@@ -134,6 +133,7 @@
                     <!--Crud-->
                               <a style="color: rgb(89, 236, 89);" href={% url 'crud' %}>Crud</a>
                               <a style="color: rgb(89, 236, 89);" href={% url 'logout' %}>Cerrar Sesión</a>
+                              <a style="color: rgb(89, 236, 89);" href={% url 'registro' %}>RegistrarUsuario</a>
                               <p style="color: rgb(89, 236, 89);" href="#">@{{user.username}}</p>
                     {% else %}
                         <a style="color: rgb(89, 236, 89);" href={% url 'login' %}>TuJardínUsuario</a>    
@@ -146,5 +146,18 @@
 
     </footer>
     <script src={% static "./js/index.js" %}> </script> 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages%}
+        {% for m in messages%}
+            <script>
+                Swal.fire{
+                    "title": "Felicitaciones",
+                    "text": "{{m}}",
+                    "icon": "success"
+                }
+            </script>
+        {% endfor %}
+    {% endif %}
+
 </body>
 </html>

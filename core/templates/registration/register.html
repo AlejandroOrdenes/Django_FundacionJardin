@@ -18,10 +18,17 @@
 <body>
     <div class="navMenu">
         <a class="logo" href="">Tu<span class="colorJardin">Jardín</span></a>
+        <div class="menu">
+            <ul class="fullMenu">
+                <li style="font-size: 1.3rem;"><a class="linkMenu" href={% url 'index' %}>Inicio</a></li>
+                <li style="font-size: 1.3rem;"><a class="linkMenu" href={% url 'login' %}  >Login</a></li>
+            
+            </ul>
+        </div>
     </div>   
     <div class="container" style="
     width: 56%;">
-        <div class="row" style="margin-top: 20%; background-color: white;">
+        <div class="row" style="margin-top: 12%; background-color: white;">
             <div class="card" >
                 
                 <div class="card-body" >
@@ -32,7 +39,7 @@
                         {{ form }}
 
                         <a href={% url 'index' %}>Home</a> 
-                        <a href={% url 'registro' %}>Login</a> 
+                        <a href={% url 'login' %}>Login</a> 
                         
                         <input type="submit" value="Registrar">
                     </form>
