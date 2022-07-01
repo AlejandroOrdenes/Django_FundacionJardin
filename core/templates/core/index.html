@@ -134,7 +134,7 @@
                     <!--Crud-->
                               <a style="color: rgb(89, 236, 89);" href={% url 'crud' %}>Crud</a>
                               <a style="color: rgb(89, 236, 89);" href={% url 'logout' %}>Cerrar Sesión</a>
-                    
+                              <p style="color: rgb(89, 236, 89);" href="#">@{{user.username}}</p>
                     {% else %}
                         <a style="color: rgb(89, 236, 89);" href={% url 'login' %}>TuJardínUsuario</a>    
                     {% endif %} 

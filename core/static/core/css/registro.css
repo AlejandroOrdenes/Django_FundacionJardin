@@ -1,0 +1,13 @@
+li {
+    color: black;
+}
+
+li:hover {
+    color: black;
+}
+
+ul {
+    display: contents;
+    row-gap: 6%;
+    font-size: xx-small;
+}

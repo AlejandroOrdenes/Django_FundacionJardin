@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
-from .forms import ProductoForm
+from .forms import ProductoForm, CustomUserCreationForm
 from django.contrib import messages
 
 # Create your views here.
@@ -8,8 +8,11 @@ from django.contrib import messages
 def index(request):
     return render(request, 'core/index.html')
 
-def inicioUsuario(request):
-    return render(request, 'core/inicioSesionUsuario.html')
+def registroUsuario(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+    return render(request, 'registration/register.html', data)
 
 def nosotros(request):
     return render(request, 'core/nosotros.html')

@@ -17,10 +17,10 @@
 </head>
 <body>
     <div class="navMenu">
-        <a class="logo" href="">Tu<span class="colorJardin">Jardín</span></a>
+        <a class="logo" href={% url 'index' %}>Tu<span class="colorJardin">Jardín</span></a>
     </div>   
     <div class="container" style="margin-top: 5%;display: flex;align-items: center;justify-content: center;">
-        <div class="row" style="margin: 9%;background-color: white;height: 48%;/* max-width: 87%; */">
+        <div class="row" style="margin: 9%;background-color: white;height: 55%;/* max-width: 87%; */">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 10%;padding-top: 11%;">
                 <h2>Inicio Sesion</h2>
                 <hr>
@@ -30,7 +30,9 @@
                         {% csrf_token %}
                         {{ form }}
 
-                        <input type="submit" value="ingresar">
+                        <a href={% url 'index' %}>Home</a> 
+                        <a href={% url 'registro' %}>Registrar Usuario</a>
+                        <input type="submit" value="Ingresar">
                     </form>
                     
                 </div>
