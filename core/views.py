@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
@@ -8,6 +7,9 @@ from django.contrib import messages
 
 def index(request):
     return render(request, 'core/index.html')
+
+def inicioUsuario(request):
+    return render(request, 'core/inicioSesionUsuario.html')
 
 def nosotros(request):
     return render(request, 'core/nosotros.html')
@@ -56,7 +58,6 @@ def formulario(request):
         else:
             data["form"] = formulario
     return render(request, 'core/formulario.html', data)
-
 
 
 def mod_prod(request, id):

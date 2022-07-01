@@ -1,177 +1,177 @@
 * {
-  font-family: 'league spartan', sans-serif;
+    font-family: 'league spartan', sans-serif;
 }
+
 
 /* Menu */
 
 .fullMenu {
-  display: flex;
-  list-style: none;
-  margin: 3%;
-  width: 100%;
-  justify-content: right;
+    display: flex;
+    list-style: none;
+    margin: 3%;
+    width: 100%;
+    justify-content: right;
 }
 
 .linkMenu {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .linkMenu:hover {
-  color: #5cd85c;
+    color: #5cd85c;
 }
 
 .responsiveMenu {
-  display: none;
+    display: none;
 }
 
-.fix_menu{
-  padding-right:0px;
+.fix_menu {
+    padding-right: 0px;
 }
-
 
 .navMenu {
-  background-color: rgb(42, 42, 42);
-  height: 7%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  position: fixed;
+    background-color: rgb(42, 42, 42);
+    height: 7%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    position: fixed;
 }
 
 .logo {
-  color: white;
-  font-size: xx-large;
-  font-weight: bold;
-  padding-left: 2%;
-  text-decoration: none;
+    color: white;
+    font-size: xx-large;
+    font-weight: bold;
+    padding-left: 2%;
+    text-decoration: none;
 }
 
 .colorJardin {
-  color: rgb(89, 236, 89);
+    color: rgb(89, 236, 89);
 }
 
-
 .menu {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  height: 100%;
-  align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    align-items: center;
 }
 
 #toggleMenu {
-  display: inline;
-  padding: 0%;
-  color: white;
+    display: inline;
+    padding: 0%;
+    color: white;
 }
 
 ul {
-  display: flex;
-  list-style: none;
-  margin: 3%;
-  width: 100%;
-  justify-content: right;
+    display: flex;
+    list-style: none;
+    margin: 3%;
+    width: 100%;
+    justify-content: right;
 }
 
 #carouselExampleSlidesOnly {
-  margin-top: 5%;
+    margin-top: 5%;
 }
 
 li {
-  padding-right: 2%;
-  color: white;
+    padding-right: 2%;
+    color: white;
 }
 
 li:hover {
-  cursor: pointer;
-  color: rgb(89, 236, 89);
+    cursor: pointer;
+    color: rgb(89, 236, 89);
 }
 
 a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .logo:hover {
-  color: white;
+    color: white;
 }
 
 @media (max-width: 600px) {
-
-  .fullMenu {
-      display: none;
-  }
-
-  .responsiveMenu {
-      display: flex;
-      list-style: none;
-      margin: 3%;
-      width: 100%;
-      justify-content: right;
-  }
-
-  .navMenu {
-    height: 4.5%;
-    position: sticky;
-  }
-
-  li {
-      padding-right: 7%;
-  }
-
-  
-
-  i {
-      font-size: 1.5rem;
-  }
-  
-  #carouselExampleSlidesOnly {
-    margin-top: 20%;
-  }
-  .textoNosotros {
-      margin-top: 30rem;
-  }
-  
-  #botonSubs {
-      margin-bottom: 3rem;
-  }
+    .fullMenu {
+        display: none;
+    }
+    .responsiveMenu {
+        display: flex;
+        list-style: none;
+        margin: 3%;
+        width: 100%;
+        justify-content: right;
+    }
+    .navMenu {
+        height: 4.5%;
+        position: sticky;
+    }
+    li {
+        padding-right: 7%;
+    }
+    i {
+        font-size: 1.5rem;
+    }
+    #carouselExampleSlidesOnly {
+        margin-top: 20%;
+    }
+    .textoNosotros {
+        margin-top: 30rem;
+    }
+    #botonSubs {
+        margin-bottom: 3rem;
+    }
 }
+
 
 /* #### -Fin menu- #### */
 
-.well{
-  width: 23%;
+.well {
+    width: 23%;
 }
 
 
 /*footer css para el modal (alineacion a la izquierda)*/
-.M_img_izq{
-  justify-content: right;
-  width: 80px;
+
+.M_img_izq {
+    justify-content: right;
+    width: 80px;
 }
+
+
 /*espacio entre los botones*/
-.M_boton{
-  margin-top: -30px;
+
+.M_boton {
+    margin-top: -30px;
 }
+
 
 /*borde para el registro*/
-.bordesito{
-  border-radius: 15px;
-  margin-top:50px;
-  margin-bottom:10px;
+
+.bordesito {
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
-.M_quitado{
-  margin-top:-50px;
-  margin-bottom: -50px; /*esto ayuda a que no se moleste al footer con el radio negro*/ 
+.M_quitado {
+    margin-top: -50px;
+    margin-bottom: -50px;
+    /*esto ayuda a que no se moleste al footer con el radio negro*/
 }
+
+
 /* en el css de productos se ayuda al footer con M_footer*/
 
-.ct_item-active{
-  background-color: #4d9875; /* boton activado colorsito*/
+.ct_item-active {
+    background-color: #4d9875;
+    /* boton activado colorsito*/
 }
-

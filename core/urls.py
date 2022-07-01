@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, nosotros, contacto, usuario, productos, crud, formulario, mod_prod, eliminar_prod
+from .views import index, nosotros, contacto, usuario, productos, crud, formulario, mod_prod, eliminar_prod, inicioUsuario
 # from django.conf import settings #media
 # from django.conf.urls.static import static #media
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('formulario', formulario, name='formulario'),
     path('mod_prod/<id>',mod_prod, name='mod'),
     path('eliminar_prod/<id>',eliminar_prod, name='eliminar'),
+    path('inicioUsuario', inicioUsuario, name='usuario')
 ]
 
 #if settings.DEBUG:
