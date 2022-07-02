@@ -1,7 +1,13 @@
-from django.urls import path
-from .views import index, nosotros, contacto, registroUsuario, usuario, productos, crud, formulario, mod_prod, eliminar_prod, registroUsuario
+from django.db import router
+from django.urls import path, include
+from .views import index, nosotros, contacto, registroUsuario, usuario, productos, crud, formulario, mod_prod, eliminar_prod, registroUsuario, ProductoViewset
+from rest_framework import routers
 # from django.conf import settings #media
 # from django.conf.urls.static import static #media
+
+router = routers.DefaultRouter()
+router.register('producto', ProductoViewset)
+
 
 urlpatterns = [
     path('', index, name='index'), #le quite el nombre aca para que se acceda directamente.
@@ -14,7 +20,7 @@ urlpatterns = [
     path('mod_prod/<id>',mod_prod, name='mod'),
     path('eliminar_prod/<id>',eliminar_prod, name='eliminar'),
     path('registro/',registroUsuario, name='registro'),
-
+    path('api/', include(router.urls)),
 
 ]
 

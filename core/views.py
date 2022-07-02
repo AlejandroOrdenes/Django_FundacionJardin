@@ -3,8 +3,28 @@ from .models import Producto
 from .forms import ProductoForm, CustomUserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from rest_framework import viewsets
+from .serializers import CategoriaSerializer, ProductoSerializer
+
 
 # Create your views here.
+
+class ProductoViewset(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
+
+    def get_queryset(self):
+        productos = Producto.objects.all()
+
+        nombre = self.request.GET.get('nombre')
+
+        if nombre:
+            productos = productos.filter(nombre_prod__contains=nombre)
+        
+        return productos
+    
+
 
 def index(request):
     return render(request, 'core/index.html')
