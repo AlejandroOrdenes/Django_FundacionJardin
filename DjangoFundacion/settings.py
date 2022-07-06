@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from telnetlib import LOGOUT
+from telnetlib import AUTHENTICATION, LOGOUT
 
 from django.shortcuts import redirect
 
@@ -28,12 +28,15 @@ SECRET_KEY = 'django-insecure-d0r29gj(c$z+5g7_!+x=08j2^%$dhq6uin7h4=56zmac$zr7rn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.localhost']
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_FACEBOOK_KEY = "551347249974577"
+SOCIAL_AUTH_FACEBOOK_SECRET = "49e278651785510e0cfe82d886a7f435"
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'rest_framework',
     'rest_framework.authtoken',
+    'social_django',
+     # other apps
+    "sslserver",
     
     
 ]
@@ -139,3 +145,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS = {
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+} 

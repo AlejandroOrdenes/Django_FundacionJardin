@@ -23,7 +23,6 @@ class ProductoViewset(viewsets.ModelViewSet):
             productos = productos.filter(nombre_prod__contains=nombre)
         
         return productos
-    
 
 
 def index(request):
@@ -47,6 +46,9 @@ def registroUsuario(request):
 
 def nosotros(request):
     return render(request, 'core/nosotros.html')
+
+def privacidad(request):
+    return render(request, 'core/politicaPrivacidad.html')
 
 def contacto(request):
     return render(request, 'core/contacto.html')
