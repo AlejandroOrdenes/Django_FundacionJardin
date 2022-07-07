@@ -116,3 +116,15 @@ def eliminar_prod(request, id):
     producto.delete()
     messages.success(request, "eliminado correctamente")
     return redirect(to="crud")
+def productito(request):
+    #accedo al objeto que contiene los datos de la base 
+    #el metodo all traera todos los productos que esten en la tablita
+    productos= Producto.objects.all()
+    #ahora crearemos una variable que le pase los datos del producto al template
+    datos = {
+        'productos': productos
+    }
+    #ahora se le agrega para que se envie al template de html
+    return render(request,'core/Productito.html', datos)
+def navbar(request):
+    return render(request, 'core/navBar.html')

@@ -124,9 +124,9 @@
                     <!--Despachos-->
                               <a class="link-1" href={%url 'usuario' %}>Despachos</a>
                     <!--ONG-->
-                              <a href="#">ONG</a>
+                              <a href={%url 'navbar' %}>ONG</a>
                     <!--Suscribete-->
-                              <a href="#">Suscribete</a>
+                              <a href={%url 'productito' %}>Suscribete</a>
                     <!--Formulario-->
                     {% if user.is_authenticated %}
                               <a style="color: rgb(89, 236, 89);" href={% url 'formulario' %}>Formulario</a>
