@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 from telnetlib import AUTHENTICATION, LOGOUT
+from django import conf
 
 from django.shortcuts import redirect
 
@@ -35,8 +37,8 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-SOCIAL_AUTH_FACEBOOK_KEY = "551347249974577"
-SOCIAL_AUTH_FACEBOOK_SECRET = "49e278651785510e0cfe82d886a7f435"
+SOCIAL_AUTH_FACEBOOK_KEY = config("FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = config("FACEBOOK_SECRET")
 
 
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
