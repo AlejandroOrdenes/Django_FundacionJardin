@@ -17,7 +17,7 @@
     <div class="navMenu">
         <a class="logo" href="">Tu<span class="colorJardin">Jardín</span></a>
         <div class="menu">
-            <ul class="fullMenu">
+            <ul class="fullMenu" style="align-items: center;">
                 <li><a class="linkMenu" href={% url 'index' %}>Inicio</a></li>
                 <li><a class="linkMenu" href={% url 'nosotros' %}  >Nosotros</a></li>
                 <li><a class="linkMenu" href={%url 'productos' %}>Productos</a></li>
@@ -25,6 +25,13 @@
                 <li><a class="linkMenu" href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
                 <li><a class="linkMenu" href={%url 'usuario' %}><i class="fa-solid fa-user"></i></a></li>
                 <li><a class="linkMenu" href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li>{% for  auth in backends.associated  %}
+                        {% if auth.provider == 'facebook'  %}
+                            <img src="{{ auth.extra_data.picture.data.url }}" alt="" width="50" height="50">
+                        {% endif %}
+                    {% endfor %}
+                </li>
+
             </ul>
             <ul class="responsiveMenu">
                 <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
