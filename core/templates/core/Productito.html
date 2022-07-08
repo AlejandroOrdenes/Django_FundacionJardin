@@ -49,7 +49,7 @@
             <!-- Box 1 /aca se pueden cambiar con el django y con los for maximizar a 3 por pagina(creo)-->
             <div class="product-box">
               {% if p.imagen_prod %}
-              <img src="{{p.imagen_prod}}" alt="{{p.nombre_prod}}" class="product-img">
+              <img src="{{p.imagen_prod.url}}" alt="{{p.nombre_prod}}" class="product-img">
               {% endif%}
               {% if not p.imagen_prod %}
               <img src={% static "core/img/IMG.png" %} alt="{{p.nombre_prod}}" class="product-img">
