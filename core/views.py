@@ -1,9 +1,10 @@
 
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from regex import U
 from requests import post
-from .models import Producto, Usuario
-from .forms import ProductoForm, CustomUserCreationForm
+from .models import Cliente, Producto
+from .forms import ClienteLogin, ProductoForm, CustomUserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from rest_framework import viewsets
@@ -133,21 +134,36 @@ def insert_data(request):
         password_cli = request.POST['pass']
     
 
-        cliente = Usuario(nombre_cli=nombre_cli, email=email, direccion=direccion, password_cli=password_cli)
+        cliente = Cliente(nombre_cli=nombre_cli, email=email, direccion=direccion, password_cli=password_cli)
         cliente.save()
         return render(request, 'core/registroCorrecto.html')
     else:
         return render(request, 'core/Usuario.html')
 
 def loginCli(request):
+    form = ClienteLogin(request.POST)
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['pass']
+        email = form.cleaned_data["email"]
+        password = form.cleaned_data["password"]
         user = authenticate(email=email, password=password)
         if user is not None:
-            login(request, user)
-            return render(request, 'core/index.html')
-        else:
-            return render(request, 'core/index.html') 
+            if user.is_active:
+                login(request, user)
+                return redirect('core/index.html')
+            return HttpResponse('<h1>Page was found</h1>')
+        return render(request, "core/Usuario.html", {'form': form})
+    return render(request, "core/Usuario.html", {'form': form})
     
         
+def productito(request):
+    #accedo al objeto que contiene los datos de la base 
+    #el metodo all traera todos los productos que esten en la tablita
+    productos= Producto.objects.all()
+    #ahora crearemos una variable que le pase los datos del producto al template
+    datos = {
+        'productos': productos
+    }
+    #ahora se le agrega para que se envie al template de html
+    return render(request,'core/Productito.html', datos)
+def navbar(request):
+    return render(request, 'core/navBar.html')

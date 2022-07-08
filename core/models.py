@@ -44,7 +44,7 @@ class Venta(models.Model):
     def __str__(self):
         return self.idVenta
 
-class Usuario(models.Model):
+class Cliente(models.Model):
     idCliente = models.IntegerField(primary_key=True,verbose_name='id Cliente')
     rut_cli = models.CharField(null=False, max_length=11,verbose_name='Rut Cliente')
     nombre_cli = models.CharField(max_length=40,verbose_name='Nombre_prod')

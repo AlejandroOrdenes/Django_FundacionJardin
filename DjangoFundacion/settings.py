@@ -124,6 +124,20 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
+#DBoracle
+# DATABASES = {    
+#     'default': {
+#         'ENGINE' : 'django.db.backends.oracle',
+#         'NAME' :'127.0.0.1:1521/xe',
+#         'USER' :'C##prueba',
+#         'PASSWORD' : 'prueba',
+#         'TEST' : {
+#             'USER' : 'default_test',
+#             'TBLSPACE' : 'default_test_tbls',
+#             'TBLSPACE_TMP' : 'default_test_tbls_tmp',
+#         },
+#     },
+# }
 
 
 # Password validation
@@ -176,3 +190,4 @@ AUTHENTICATION_BACKENDS = {
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 } 
+
