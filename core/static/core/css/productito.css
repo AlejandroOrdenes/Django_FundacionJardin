@@ -196,3 +196,6 @@ header{
 .add-cart:hover {
     background: hs1(249, 32% 17%);
 }
+.botomsito{
+    display: grid;
+}

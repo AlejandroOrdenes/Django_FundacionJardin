@@ -21,16 +21,7 @@
                 <h2 class="cart-title">Tu Carrito</h2>
                 <!-- Content -->
                 <div class="cart-content">
-                    <div class="cart-box">
-                        <img src={% static "core/img/macetero1.jpg" %} alt="" class="cart-img">
-                        <div class="detail-box">
-                            <div class="cart-product-title">earbuds</div>
-                            <div class="cart-price">$29</div>
-                            <input type="number" value="1" class="cart-quantity">
-                        </div>
-                         <!-- remove cart -->
-                         <i class='bx bxs-trash cart-remove'></i>
-                    </div>
+
                 </div>
                 <!--total-->
                 <div class="total">
@@ -38,7 +29,7 @@
                     <div class="total-price">$0</div>
                 </div>
                 <!-- Buy Button -->
-                <button type="button" class="btn-buy">Buy Now</button>
+                <button type="button" class="btn-buy">Comprar</button>
                 <!-- Cart Close -->
                 <i class='bx bx-x' id="close-cart"></i>
             </div>
@@ -47,7 +38,10 @@
     <!-- Shop -->
     
     <section class="shop container">
-        <h2 class="section-title">Productos</h2>
+        <dt class="pad_letras">
+            <h1 class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Nuestros Productos</h1>
+            <hr class="mx-auto">
+          </dt>
         <!-- Content -->
         {% load humanize %}   
         <div class="shop-content">
@@ -58,10 +52,86 @@
                 <h2 class="product-title">{{ p.nombre_prod | title }}</h2>
                 <span class="price">${{ p.precio_prod | intcomma}}</span>
                 <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
+                <!-- cambiar por pagina correspondiente al producto-->
+                <button type="button" class="btn rounded-pill btn-success " data-bs-toggle="modal" data-bs-target="#myModal{{ p.idProducto }}">Ver producto</button>
+                    <div class="modal" id="myModal{{ p.idProducto }}">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                    
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                            <h4 class="modal-title">{{ p.nombre_prod | capfirst}}</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                          </div>
+                    
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                            <div class="row">
+                              <div class="col">
+                                {% if p.imagen_prod %}
+                                <img class="img-fluid mb-3 " src="{{p.imagen_prod.url}}" alt="{{ p.nombre_prod }}">
+                                {% endif%}
+                                {% if not p.imagen_prod %}
+                                <img id="container" class="img-fluid mb-3 fotito" src={% static "core/img/IMG.png" %} alt="{{p.nombre_prod}}">
+                                {% endif%}
+                                <h4>${{ p.precio_prod | intcomma}}</h4>
+                                {% if p.cantidad_prod %}
+                                <h7>{{ p.cantidad_prod}} Disponibles</h7>
+                                {% elif p.cantidad_prod == 0 %}
+                                <h7>No hay Stock!!</h7>
+                                {% endif%}
+                              </div>
+                              <div class="col">
+                                <h6>{{ p.descripcion_prod }}</h6>
+                                
+                              </div>
+                              
+                            </div>
+                            
+                          </div>
+                    
+                          <!-- Modal footer -->
+                    <div class="modal-footer">
+                        
+                    </div>
+                    
+                        </div>
+                        
+                      </div>
+                    </div>                    
+                </div>
             {% endfor %}
         </div>
     </section>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <footer class="footer-distributed">
+
+        <div class="footer-right">
+    <!-- aca irian lo links en la #-->
+    <a href="#"><i class="fa fa-whatsapp"></i></a><!--whatsap-->
+    <a href="#"><i class="fa fa-instagram"></i></a> <!-- instagram-->
+    <a href="#"><i class="fa fa-facebook"></i></a><!-- icono de youtube-->
+    <a href="#"><i class="fa fa-github"></i></a><!-- github del proyecto-->
+
+
+        </div>
+
+        <div class="footer-left">
+
+            <p class="footer-links">
+      <p class="footer-links">
+        <!--Despachos-->
+                  <a class="link-1" href="./Usuario.html">Despachos</a>
+        <!--ONG-->
+                  <a href="#">ONG</a>
+        <!--Suscribete-->
+                  <a href="#">Suscribete</a>
+              </p>
+
+            <p>TuJardin &copy; 2022</p>
+        </div>
+
+    </footer>
     <!-- Link to JS -->
     <script src={% static "core/js/carrito.js" %}></script>
 
