@@ -128,7 +128,7 @@
                     <!--Suscribete-->
                               <a href={%url 'productito' %}>Suscribete</a>
                     <!--Formulario-->
-                    {% if user.is_authenticated %}
+                    {% if user.is_staff %}
                               <a style="color: rgb(89, 236, 89);" href={% url 'formulario' %}>Formulario</a>
                     <!--Crud-->
                               <a style="color: rgb(89, 236, 89);" href={% url 'crud' %}>Crud</a>
