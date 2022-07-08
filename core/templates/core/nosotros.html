@@ -102,7 +102,23 @@
                 <a href="#">ONG</a>
       <!--Suscribete-->
                 <a href="#">Suscribete</a>
+                {% if user.is_authenticated %}
+                              <a style="color: rgb(89, 236, 89);" href={% url 'logout' %}>Cerrar Sesión</a>
+                    {% endif %}
+                    {% if user.is_staff %}
+                              <a style="color: rgb(89, 236, 89);" href={% url 'formulario' %}>Formulario</a>
+                    <!--Crud-->
+                              <a style="color: rgb(89, 236, 89);" href={% url 'crud' %}>Crud</a>
+                              
+                              <a style="color: rgb(89, 236, 89);" href={% url 'registro' %}>RegistrarUsuario</a>
+                              <p style="color: rgb(89, 236, 89);" href="#">@{{user.username}}</p>
+                    {% else %}
+                        <a style="color: rgb(89, 236, 89);" href={% url 'login' %}>TuJardínUsuario</a>    
+                    {% endif %} 
+
+                          </p>
             </p>
+            
 
             <p>TuJardin &copy; 2022</p>
         </div>

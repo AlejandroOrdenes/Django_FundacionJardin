@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['.localhost']
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'productito'
 LOGOUT_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_FACEBOOK_KEY = config("FACEBOOK_KEY")
