@@ -1,6 +1,6 @@
 from django.db import router
 from django.urls import path, include
-from .views import index, nosotros, contacto, registroUsuario, usuario, productos, crud, formulario, mod_prod, eliminar_prod, privacidad , registroUsuario, ProductoViewset
+from .views import index, nosotros, contacto, registroUsuario, usuario, productos, crud, formulario, mod_prod, eliminar_prod, privacidad , registroUsuario, ProductoViewset, productito,navbar
 from rest_framework import routers
 # from django.conf import settings #media
 # from django.conf.urls.static import static #media
@@ -22,7 +22,9 @@ urlpatterns = [
     path('eliminar_prod/<id>',eliminar_prod, name='eliminar'),
     path('registro/',registroUsuario, name='registro'),
     path('api/', include(router.urls)),
-
+    path('productito', productito, name='productito'),
+    path('navbar', navbar, name='navbar'),
+    
 ]
 
 #if settings.DEBUG:

@@ -27,6 +27,7 @@
     
     <link rel="stylesheet" href={% static "core/css/productos.css"%}>
     <link rel="stylesheet" href={% static "core/css/Menu.css"%}>
+    
 </head>
 <body id="fb">
 
@@ -208,6 +209,11 @@
                                 <img id="container" class="img-fluid mb-3 fotito" src={% static "core/img/IMG.png" %} alt="{{p.nombre_prod}}">
                                 {% endif%}
                                 <h4>${{ p.precio_prod | intcomma}}</h4>
+                                {% if p.cantidad_prod %}
+                                <h7>{{ p.cantidad_prod}} Disponibles</h7>
+                                {% elif p.cantidad_prod == 0 %}
+                                <h7>No hay Stock!!</h7>
+                                {% endif%}
                               </div>
                               <div class="col">
                                 <h6>{{ p.descripcion_prod }}</h6>
