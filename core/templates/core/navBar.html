@@ -26,7 +26,7 @@
                 <li><a class="linkMenu" href={%url 'contacto' %}>Contactos</a></li>
                 <li><a class="linkMenu" href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
                 <li><a class="linkMenu" href={%url 'usuario' %}><i class="fa-solid fa-user"></i></a></li>
-                <li><a class="linkMenu" href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a class="linkMenu" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 <li>{% for  auth in backends.associated  %}
                         {% if auth.provider == 'facebook'  %}
                             <img src="{{ auth.extra_data.picture.data.url }}" alt="" width="50" height="50">
