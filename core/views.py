@@ -1,10 +1,13 @@
+
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Producto
+from regex import U
+from requests import post
+from .models import Producto, Usuario
 from .forms import ProductoForm, CustomUserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from rest_framework import viewsets
-from .serializers import CategoriaSerializer, ProductoSerializer
+from .serializers import ProductoSerializer
 
 
 # Create your views here.
@@ -52,6 +55,9 @@ def privacidad(request):
 
 def contacto(request):
     return render(request, 'core/contacto.html')
+
+def registroCorrecto(request):
+    return render(request, 'core/registroCorrecto.html')
 
 def usuario(request):
     return render(request, 'core/Usuario.html')
@@ -118,3 +124,30 @@ def eliminar_prod(request, id):
     producto.delete()
     messages.success(request, "eliminado correctamente")
     return redirect(to="crud")
+
+def insert_data(request):
+    if request.method == 'POST':
+        nombre_cli = request.POST['nombre']
+        email = request.POST['email']
+        direccion = request.POST['direccion']
+        password_cli = request.POST['pass']
+    
+
+        cliente = Usuario(nombre_cli=nombre_cli, email=email, direccion=direccion, password_cli=password_cli)
+        cliente.save()
+        return render(request, 'core/registroCorrecto.html')
+    else:
+        return render(request, 'core/Usuario.html')
+
+def loginCli(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['pass']
+        user = authenticate(email=email, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'core/index.html')
+        else:
+            return render(request, 'core/index.html') 
+    
+        

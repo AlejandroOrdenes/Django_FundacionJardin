@@ -55,14 +55,23 @@
           
                           <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ">Crear una cuenta</p>
           
-                          <form id="registerForm" class="mx-1 mx-md-4" autocomplete="on">
-          
+                          <form action="{% url 'insert_data' %}" method="POST" id="registerForm" class="mx-1 mx-md-4" autocomplete="on">
+                            {% csrf_token %}
                             <div style="width: 100%" class="d-flex flex-row align-items-center mb-4">
                               <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                               <div class="form-floating">
-                                <input autocomplete="on" type="input" class="form-control" id="inputNombre" placeholder="Nombre">
-                                <label for="floatingPassword">Nombre</label>
+                                <input name="nombre" autocomplete="on" type="input" class="form-control" id="inputNombre" placeholder="Nombre">
+                                <label for="inputNombre">Nombre</label>
                                 <p id="errorNombre">Ingrese Nombre valido!</p>
+                              </div>
+                              
+                            </div>
+                            <div style="width: 100%" class="d-flex flex-row align-items-center mb-4">
+                              <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                              <div class="form-floating">
+                                <input name="rut" autocomplete="on" type="input" class="form-control" id="inputRut" placeholder="Nombre">
+                                <label for="inputRut">Nombre</label>
+                                <p id="errorRut">Ingrese Rut valido!</p>
                               </div>
                               
                             </div>
@@ -70,8 +79,8 @@
                             <div style="width: 100%;" class="d-flex flex-row align-items-center mb-4">
                               <i class="fas fa-map-marker fa-lg me-3 fa-fw"></i>
                               <div class="form-floating">
-                                <input autocomplete="on" type="input" class="form-control" id="inputAddress" placeholder="Nombre">
-                                <label for="floatingPassword">Dirección</label>
+                                <input name="direccion" autocomplete="on" type="input" class="form-control" id="inputAddress" placeholder="Nombre">
+                                <label for="inputAddress">Dirección</label>
                                 <p id="errorDireccion">Ingrese Dirección valida!</p>
                               </div>
                               
@@ -80,8 +89,8 @@
                             <div style="width: 100%;" class="d-flex flex-row align-items-center mb-4">
                               <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                               <div class="form-floating ">
-                                <input autocomplete="on" type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
-                                <label for="floatingInput">Correo electronico</label>
+                                <input name="email" autocomplete="on" type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+                                <label for="inputEmail">Correo electronico</label>
                                 <p id="errorEmail">Ingrese Email valido!</p>
                               </div>
                               
@@ -90,8 +99,8 @@
                             <div style="width: 100%;" class="d-flex flex-row align-items-center mb-4">
                               <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                               <div class="form-floating">
-                                <input autocomplete="on" type="password" class="form-control" id="inputPass" placeholder="Password">
-                                <label for="floatingPassword">Contraseña</label>
+                                <input name="pass" autocomplete="on" type="password" class="form-control" id="inputPass" placeholder="Password">
+                                <label for="inputPass">Contraseña</label>
                                 <p id="infoPass" style="font-size: 0.7rem; margin: 2%;">Min 6 y Max 16, mayuscula, minuscula, <br> numero y caracter especial</p>
                                 <p id="errorPass">Ingrese Contraseña valida!</p>
                               </div>
@@ -103,25 +112,29 @@
                               <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                               <div class="form-floating">
                                 <input type="password" class="form-control" id="inputPass2" placeholder="Password">
-                                <label for="floatingPassword">Repite tu contraseña</label>
+                                <label for="inputPass2">Repite tu contraseña</label>
                                 <p id="errorPass2">Contraseñas no coinciden!</p>
                               </div>
                               
                             </div>
           
                             <div class="form-check d-flex justify-content-flex-start mb-5">
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label style="margin-right: 10%;" class="form-check-label" for="exampleCheck1">Suscribirme para donación</label>
+                              <div class="mb-3 form-check">
+                                  <input name="suscripcion" type="checkbox" class="form-check-input" id="exampleCheck1">
+                                  <label style="margin-right: 10%;" class="form-check-label" for="exampleCheck1">Suscribirme para donación</label>
+                                  <a href="{% url 'social:begin' 'facebook'%}">Continuar con facebook</a>
+                              </div>
+                  
+                              <label class="form-check-label" for="form2Example3">
+                              Soy usuario?</label>
+                              <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar</button>
                             </div>
-    <!--  ================================================ -->
-    <!--                    Seccion final                  -->
-    <!--  ================================================ -->
-    <label class="form-check-label" for="form2Example3">
-      <!-- Button trigger modal -->
-Soy usuario?<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Ingresar
-</button>
+          
+                           
+                            <input type="submit" id="botonRegistrarse" class="btn btn-primary" value="Registrarse">
+                            
+          
+                          </form>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -132,7 +145,7 @@ Soy usuario?<button type="button" class="btn btn-link" data-bs-toggle="modal" da
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form autocomplete="on">
+        <form autocomplete="on" action="{% url 'loginCli' %}" method="GET">
           <div class="mb-3">
             <div class="form-floating mb-3">
               <input autocomplete="on" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -140,7 +153,7 @@ Soy usuario?<button type="button" class="btn btn-link" data-bs-toggle="modal" da
               <div id="emailHelp" class="form-text"> Nunca compartiremos tu gmail.</div>
               <div id="errorEmailLog" class="form-text">Email Invalido!!</div>
             </div>
-            
+
           </div>
           <div class="mb-3">
             <div class="form-floating">
@@ -155,7 +168,7 @@ Soy usuario?<button type="button" class="btn btn-link" data-bs-toggle="modal" da
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
           </div>
-          <button id="loginButton" type="submit" class="btn btn-success ">Iniciar Sesion</button>
+          <input type="submit" class="btn btn-primary" value="Login">
         </form>
       </div>
       <div class="modal-footer">
@@ -167,13 +180,7 @@ Soy usuario?<button type="button" class="btn btn-link" data-bs-toggle="modal" da
 </div>
     
 
-                            </div>
-          
-                            <div class="d-flex justify-content-flex-start mx-4 mb-3 mb-lg-4 M_boton">
-                              <button id="botonRegistrarse" type="button" class="btn btn-success btn-lg">Registrarse</button>
-                            </div>
-          
-                          </form>
+    
           
                         </div>
                         <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">

@@ -3,18 +3,6 @@ from django.db import models
 
 # Create your models here.
 
-#Clase de usuario para uso
-
-# class Usuario (models.Model):
-#     run =models.IntegerField(primary_key=True, verbose_name='Run')
-#     nombre =models.CharField(max_length=100, verbose_name='Nombre')
-#     direccion =models.CharField(max_length=100, verbose_name='Direccion')
-#     correoElectronico =models.CharField(max_length=100, verbose_name='Correo Electronico')
-#     contraseña =models.CharField(max_length=40, verbose_name='Contraseña')
-#     suscrito =models.CharField(max_length=40, verbose_name='Contraseña')
-
-#modelo para categoria(que son plantas,maceteros,etc..)
-
 class Categoria(models.Model):
     idCategoria = models.IntegerField(primary_key=True, verbose_name='Id de categoria')
     nombreCategoria = models.CharField(max_length=50, verbose_name='Nombre de la Categoria')
@@ -56,13 +44,13 @@ class Venta(models.Model):
     def __str__(self):
         return self.idVenta
 
-class Cliente(models.Model):
+class Usuario(models.Model):
     idCliente = models.IntegerField(primary_key=True,verbose_name='id Cliente')
-    rut_cli = models.CharField(null=False, max_length=11,verbose_name='Rut Clienet')
+    rut_cli = models.CharField(null=False, max_length=11,verbose_name='Rut Cliente')
     nombre_cli = models.CharField(max_length=40,verbose_name='Nombre_prod')
     email = models.CharField(max_length=40,verbose_name='Email')
     direccion = models.CharField(max_length=40,verbose_name='Direccion Cli')
-    suscripcion = models.BooleanField(verbose_name='Suscripcion Cli')
+    password_cli =models.CharField(null=True, max_length=40, verbose_name='Contraseña', default="12345")
 
     def __str__(self):
-        return self.rut_cli
+        return self.nombre_cli
