@@ -48,7 +48,12 @@
             {% for p in productos %}
             <!-- Box 1 /aca se pueden cambiar con el django y con los for maximizar a 3 por pagina(creo)-->
             <div class="product-box">
-                <img src="{{p.imagen_prod.url}}" alt="" class="product-img">
+              {% if p.imagen_prod %}
+              <img src="{{p.imagen_prod}}" alt="{{p.nombre_prod}}" class="product-img">
+              {% endif%}
+              {% if not p.imagen_prod %}
+              <img src={% static "core/img/IMG.png" %} alt="{{p.nombre_prod}}" class="product-img">
+              {% endif%}
                 <h2 class="product-title">{{ p.nombre_prod | title }}</h2>
                 <span class="price">${{ p.precio_prod | intcomma}}</span>
                 <i class='bx bx-shopping-bag add-cart'></i>
